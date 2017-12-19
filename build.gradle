@@ -1,1 +1,64 @@
-apply from: "$dberPath/build.gradle"
+buildscript {
+
+    repositories {
+	    maven {
+	        url 'http://maven.aliyun.com/nexus/content/groups/public'
+	    }
+	    
+	    maven {
+	      url "https://plugins.gradle.org/m2/"
+	    }
+	    
+	    maven {
+	      url "http://maven.oschina.net/content/groups/public/"
+	    }
+		
+	    jcenter()
+	    
+		mavenCentral()
+	}
+    
+    dependencies {
+    }
+}
+
+allprojects {
+	
+    tasks.withType(AbstractCompile) each { it.options.encoding = encoding }
+    tasks.withType(GroovyCompile) each { it.groovyOptions.encoding = encoding }
+    
+	repositories {
+	
+	    maven {
+	        url 'http://maven.aliyun.com/nexus/content/groups/public'
+	    }
+	    
+	    maven {
+	      url "https://plugins.gradle.org/m2/"
+	    }
+		
+	    jcenter()
+	    
+		mavenCentral()
+	}
+
+	apply plugin: 'groovy'
+	apply plugin: 'java'
+	apply plugin: 'eclipse'
+	apply plugin: 'idea'
+	apply plugin: 'maven'
+	
+    dependencies {
+		compile 'org.projectlombok:lombok:1.16.8',
+				'org.apache.logging.log4j:log4j-core:2.10.0',
+				'commons-logging:commons-logging:1.2',
+				'com.alibaba:fastjson:1.2.13'
+								
+		testCompile 'junit:junit:4.12'
+    }
+}
+
+task wrapper(type: Wrapper) {
+    archiveBase = 'PROJECT'
+    archivePath = 'gradle/dists'
+}
