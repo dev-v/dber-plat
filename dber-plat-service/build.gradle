@@ -1,5 +1,5 @@
 apply from: "$rootProject.projectDir/build.gradle"
 dependencies {
 	compile project(":dber-plat-api")
-	compile("com.dber:dber-service-api")
+	compile("com.dber:dber-service-api:$project_version")
 }
