@@ -1,9 +1,0 @@
-rootProject.name = 'dber-plat'
-
-include 'dber-plat-api'
-
-include 'dber-plat-client'
-
-include 'dber-plat-service'
-
-include 'dber-plat-web-server'
