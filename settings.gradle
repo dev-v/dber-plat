@@ -1,0 +1,13 @@
+rootProject.name = 'dber-plat'
+
+includeFlat 'dber'
+
+include 'dber:dber-base-api'
+
+include 'dber:dber-base-service'
+
+include 'dber:dber-base-util'
+
+include 'dber-plat-api'
+
+include 'dber-plat-service'
