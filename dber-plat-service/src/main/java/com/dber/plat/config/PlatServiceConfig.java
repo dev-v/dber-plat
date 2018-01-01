@@ -18,8 +18,8 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.dber.base.mybatis.plugin.pagination.PaginationInterceptor;
-import com.dber.base.util.DBUtil;
-import com.dber.base.util.JdbcPoolConfig;
+import com.dber.util.DBUtil;
+import com.dber.util.JdbcPoolConfig;
 
 /**
  * <li>文件名称: PlatService.java</li>
@@ -74,7 +74,7 @@ public class PlatServiceConfig {
 
 		PathMatchingResourcePatternResolver resourceResolver = new PathMatchingResourcePatternResolver();
 		platSqlSessionFactoryBean
-				.setMapperLocations(resourceResolver.getResources("classpath*:/com/dber/plat/mapper/*_mapper.xml"));
+				.setMapperLocations(resourceResolver.getResources("classpath*:/mapper/*_mapper.xml"));
 
 		Interceptor[] interceptors = { PaginationInterceptor.getInstance() };
 		platSqlSessionFactoryBean.setPlugins(interceptors);

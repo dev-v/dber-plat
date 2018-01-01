@@ -1,5 +1,8 @@
 package com.dber.plat.api.entity;
 
+import java.sql.Date;
+import java.sql.Timestamp;
+
 import lombok.Data;
 
 /**
