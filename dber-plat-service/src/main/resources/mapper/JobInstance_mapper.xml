@@ -122,7 +122,7 @@
 	</insert>
 
 	<sql id="queryList">
-		select id,job_id,_status,params,create_time,modify_time from
+		select id,job_id,_status,params,custom_params,create_time,modify_time from
 		job_instance
 	</sql>
 

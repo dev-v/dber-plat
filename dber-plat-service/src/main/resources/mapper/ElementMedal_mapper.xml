@@ -158,7 +158,7 @@
 	</insert>
 
 	<sql id="queryList">
-		select id,name,quality,active_level,score,need_score,award from
+		select id,name,quality,active_level,score,need_score,des,award from
 		element_medal
 	</sql>
 

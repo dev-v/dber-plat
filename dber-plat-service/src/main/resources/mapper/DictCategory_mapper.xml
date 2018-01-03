@@ -110,7 +110,7 @@
 	</insert>
 
 	<sql id="queryList">
-		select id,category,sys,create_time,modify_time from
+		select id,category,sys,content,create_time,modify_time from
 		dict_category
 	</sql>
 

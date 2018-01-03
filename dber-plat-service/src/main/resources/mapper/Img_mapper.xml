@@ -122,7 +122,7 @@
 	</insert>
 
 	<sql id="queryList">
-		select id,bs_id,_type,_status,modify_time from
+		select id,bs_id,_type,path,_status,modify_time from
 		img
 	</sql>
 

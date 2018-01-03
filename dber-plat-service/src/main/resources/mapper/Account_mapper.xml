@@ -158,7 +158,7 @@
 	</insert>
 
 	<sql id="queryList">
-		select id,name,cellphone,bind_id,_status,pw_expired,_type,create_time,modify_time from
+		select id,name,cellphone,password,bind_id,_status,pw_expired,_type,create_time,modify_time from
 		account
 	</sql>
 

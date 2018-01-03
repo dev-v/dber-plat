@@ -134,7 +134,7 @@
 	</insert>
 
 	<sql id="queryList">
-		select id,category_id,enum_name,value,label,create_time,modify_time from
+		select id,category_id,enum_name,value,label,content,create_time,modify_time from
 		dict
 	</sql>
 

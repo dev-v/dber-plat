@@ -60,9 +60,6 @@
 			<if test="bookCurrentStartOffset!=null">
 				book_current_start_offset,
 			</if>
-			<if test="bookOffsetDays!=null">
-				book_offset_days,
-			</if>
 			<if test="content!=null">
 				content,
 			</if>
@@ -95,9 +92,6 @@
 			</if>
 			<if test="bookCurrentStartOffset!=null">
 				#{bookCurrentStartOffset},
-			</if>
-			<if test="bookOffsetDays!=null">
-				#{bookOffsetDays},
 			</if>
 			<if test="content!=null">
 				#{content},
@@ -141,9 +135,6 @@
 			<if test="bookCurrentStartOffset != null ">
 				book_current_start_offset=#{bookCurrentStartOffset},
 			</if>
-			<if test="bookOffsetDays != null ">
-				book_offset_days=#{bookOffsetDays},
-			</if>
 			<if test="content != null ">
 				content=#{content},
 			</if>
@@ -183,9 +174,6 @@
 			<if test="bookCurrentStartOffset != null ">
 				book_current_start_offset=values(book_current_start_offset),
 			</if>
-			<if test="bookOffsetDays != null ">
-				book_offset_days=values(book_offset_days),
-			</if>
 			<if test="content != null ">
 				content=values(content),
 			</if>
@@ -194,7 +182,7 @@
 	</insert>
 
 	<sql id="queryList">
-		select id,name,begin_time,ent_time,book_bofore_time,book_after_time,book_shortest_time,book_longest_time,book_current_start_offset,book_offset_days,create_time,modify_time from
+		select id,name,begin_time,ent_time,book_bofore_time,book_after_time,book_shortest_time,book_longest_time,book_current_start_offset,create_time,modify_time from
 		booking_strategy
 	</sql>
 
@@ -226,9 +214,6 @@
 			</if>
 			<if test="bookCurrentStartOffset != null">
 				AND book_current_start_offset=#{bookCurrentStartOffset}
-			</if>
-			<if test="bookOffsetDays != null">
-				AND book_offset_days=#{bookOffsetDays}
 			</if>
 			<if test="content != null">
 				AND content=#{content}

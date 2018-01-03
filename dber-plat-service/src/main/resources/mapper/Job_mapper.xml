@@ -170,7 +170,7 @@
 	</insert>
 
 	<sql id="queryList">
-		select id,_system,_status,trigger_type,trigger_expression,name,task_type,modify_time,create_time from
+		select id,_system,_status,trigger_type,trigger_expression,name,task_type,_task,des,modify_time,create_time from
 		job
 	</sql>
 
