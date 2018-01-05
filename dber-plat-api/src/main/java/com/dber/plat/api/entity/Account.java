@@ -1,8 +1,5 @@
 package com.dber.plat.api.entity;
 
-import java.sql.Date;
-import java.sql.Timestamp;
-
 import lombok.Data;
 
 /**
@@ -65,12 +62,12 @@ public class Account {
 	/**
 	 * 
 	 */
-	private Date createTime;
+	private java.sql.Date createTime;
 
 	/**
 	 * 
 	 */
-	private Timestamp modifyTime;
+	private java.sql.Timestamp modifyTime;
 
 
 }

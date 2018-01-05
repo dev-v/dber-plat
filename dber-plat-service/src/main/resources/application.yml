@@ -15,8 +15,6 @@ spring:
     database: 0
     pool:
       min-idle: 2
-server:
-  port: 80
 
 dber.plat:
   service:

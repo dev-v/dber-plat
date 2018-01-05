@@ -1,8 +1,5 @@
 package com.dber.plat.api.entity;
 
-import java.sql.Date;
-import java.sql.Timestamp;
-
 import lombok.Data;
 
 /**
@@ -31,12 +28,12 @@ public class BookingStrategy {
 	/**
 	 * 当天可预约起始时间，单位分钟
 	 */
-	private Integer beginTime;
+	private java.sql.Time beginTime;
 
 	/**
 	 * 当天可预约结束时间，单位分钟
 	 */
-	private Integer entTime;
+	private java.sql.Time endTime;
 
 	/**
 	 * 被预约时间段前置强制占用时间
@@ -64,11 +61,6 @@ public class BookingStrategy {
 	private Integer bookCurrentStartOffset;
 
 	/**
-	 * 可预订包括今天几天内的标的，单位天
-	 */
-	private Integer bookOffsetDays;
-
-	/**
 	 * 描述
 	 */
 	private String content;
@@ -76,12 +68,12 @@ public class BookingStrategy {
 	/**
 	 * 
 	 */
-	private Date createTime;
+	private java.sql.Date createTime;
 
 	/**
 	 * 
 	 */
-	private Timestamp modifyTime;
+	private java.sql.Timestamp modifyTime;
 
 
 }
