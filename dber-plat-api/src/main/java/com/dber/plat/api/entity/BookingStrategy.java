@@ -38,7 +38,7 @@ public class BookingStrategy {
 	/**
 	 * 被预约时间段前置强制占用时间
 	 */
-	private Integer bookBoforeTime;
+	private Integer bookBeforeTime;
 
 	/**
 	 * 被预约时间段后置强制占用时间

@@ -45,8 +45,8 @@
 			<if test="endTime!=null">
 				end_time,
 			</if>
-			<if test="bookBoforeTime!=null">
-				book_bofore_time,
+			<if test="bookBeforeTime!=null">
+				book_before_time,
 			</if>
 			<if test="bookAfterTime!=null">
 				book_after_time,
@@ -78,8 +78,8 @@
 			<if test="endTime!=null">
 				#{endTime},
 			</if>
-			<if test="bookBoforeTime!=null">
-				#{bookBoforeTime},
+			<if test="bookBeforeTime!=null">
+				#{bookBeforeTime},
 			</if>
 			<if test="bookAfterTime!=null">
 				#{bookAfterTime},
@@ -120,8 +120,8 @@
 			<if test="endTime != null ">
 				end_time=#{endTime},
 			</if>
-			<if test="bookBoforeTime != null ">
-				book_bofore_time=#{bookBoforeTime},
+			<if test="bookBeforeTime != null ">
+				book_before_time=#{bookBeforeTime},
 			</if>
 			<if test="bookAfterTime != null ">
 				book_after_time=#{bookAfterTime},
@@ -159,8 +159,8 @@
 			<if test="endTime != null ">
 				end_time=values(end_time),
 			</if>
-			<if test="bookBoforeTime != null ">
-				book_bofore_time=values(book_bofore_time),
+			<if test="bookBeforeTime != null ">
+				book_before_time=values(book_before_time),
 			</if>
 			<if test="bookAfterTime != null ">
 				book_after_time=values(book_after_time),
@@ -182,7 +182,7 @@
 	</insert>
 
 	<sql id="queryList">
-		select id,name,begin_time,end_time,book_bofore_time,book_after_time,book_shortest_time,book_longest_time,book_current_start_offset,create_time,modify_time from
+		select id,name,begin_time,end_time,book_before_time,book_after_time,book_shortest_time,book_longest_time,book_current_start_offset,create_time,modify_time from
 		booking_strategy
 	</sql>
 
@@ -200,8 +200,8 @@
 			<if test="endTime != null">
 				AND end_time=#{endTime}
 			</if>
-			<if test="bookBoforeTime != null">
-				AND book_bofore_time=#{bookBoforeTime}
+			<if test="bookBeforeTime != null">
+				AND book_before_time=#{bookBeforeTime}
 			</if>
 			<if test="bookAfterTime != null">
 				AND book_after_time=#{bookAfterTime}
