@@ -35,5 +35,10 @@ public class Msg {
 	 */
 	private java.sql.Timestamp modifyTime;
 
+	/**
+	 * 
+	 */
+	private String title;
+
 
 }

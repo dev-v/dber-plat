@@ -48,6 +48,9 @@
 			<if test="customParams!=null">
 				custom_params,
 			</if>
+			<if test="realParams!=null">
+				real_params,
+			</if>
 		</trim>
 		) values (
 		<trim suffixOverrides=",">
@@ -65,6 +68,9 @@
 			</if>
 			<if test="customParams!=null">
 				#{customParams},
+			</if>
+			<if test="realParams!=null">
+				#{realParams},
 			</if>
 		</trim>
 
@@ -93,6 +99,9 @@
 			<if test="customParams != null ">
 				custom_params=#{customParams},
 			</if>
+			<if test="realParams != null ">
+				real_params=#{realParams},
+			</if>
 
 		</set>
 		where id = #{id}
@@ -117,12 +126,15 @@
 			<if test="customParams != null ">
 				custom_params=values(custom_params),
 			</if>
+			<if test="realParams != null ">
+				real_params=values(real_params),
+			</if>
 
 		</trim>
 	</insert>
 
 	<sql id="queryList">
-		select id,job_id,_status,params,custom_params,create_time,modify_time from
+		select id,job_id,_status,params,custom_params,real_params,create_time,modify_time from
 		job_instance
 	</sql>
 
@@ -145,6 +157,9 @@
 			</if>
 			<if test="customParams != null">
 				AND custom_params=#{customParams}
+			</if>
+			<if test="realParams != null">
+				AND real_params=#{realParams}
 			</if>
 			<if test="createTime != null">
 				AND create_time=#{createTime}

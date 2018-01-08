@@ -36,6 +36,9 @@
 			<if test="id!=null">
 				id,
 			</if>
+			<if test="code!=null">
+				_code,
+			</if>
 			<if test="category!=null">
 				category,
 			</if>
@@ -50,6 +53,9 @@
 		<trim suffixOverrides=",">
 			<if test="id!=null">
 				#{id},
+			</if>
+			<if test="code!=null">
+				#{code},
 			</if>
 			<if test="category!=null">
 				#{category},
@@ -75,7 +81,10 @@
 	<update id="update">
 		update dict_category
 		<set>
-						<if test="category != null ">
+						<if test="code != null ">
+				_code=#{code},
+			</if>
+			<if test="category != null ">
 				category=#{category},
 			</if>
 			<if test="sys != null ">
@@ -96,7 +105,10 @@
 		ON DUPLICATE KEY
 		UPDATE
 		<trim suffixOverrides=",">
-						<if test="category != null ">
+						<if test="code != null ">
+				_code=values(_code),
+			</if>
+			<if test="category != null ">
 				category=values(category),
 			</if>
 			<if test="sys != null ">
@@ -110,7 +122,7 @@
 	</insert>
 
 	<sql id="queryList">
-		select id,category,sys,content,create_time,modify_time from
+		select id,_code,category,sys,content,create_time,modify_time from
 		dict_category
 	</sql>
 
@@ -118,6 +130,9 @@
 		<trim prefix="WHERE" prefixOverrides="AND">
 						<if test="id != null">
 				AND id=#{id}
+			</if>
+			<if test="code != null">
+				AND _code=#{code}
 			</if>
 			<if test="category != null">
 				AND category=#{category}

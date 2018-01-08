@@ -26,6 +26,11 @@ public class ElementMedal {
 	private String name;
 
 	/**
+	 * 化学式
+	 */
+	private String chemical;
+
+	/**
 	 * 原子量
 	 */
 	private Integer quality;
@@ -54,6 +59,11 @@ public class ElementMedal {
 	 * 元素奖励，进行一次公益活动或者个人奖励
 	 */
 	private Integer award;
+
+	/**
+	 * 
+	 */
+	private java.sql.Timestamp modifyTime;
 
 
 }

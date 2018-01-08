@@ -45,5 +45,10 @@ public class VipCardStrategy {
 	 */
 	private Integer transferSelfDiscount;
 
+	/**
+	 * 
+	 */
+	private java.sql.Timestamp modifyTime;
+
 
 }

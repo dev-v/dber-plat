@@ -42,6 +42,9 @@
 			<if test="type!=null">
 				_type,
 			</if>
+			<if test="title!=null">
+				title,
+			</if>
 		</trim>
 		) values (
 		<trim suffixOverrides=",">
@@ -53,6 +56,9 @@
 			</if>
 			<if test="type!=null">
 				#{type},
+			</if>
+			<if test="title!=null">
+				#{title},
 			</if>
 		</trim>
 
@@ -75,6 +81,9 @@
 			<if test="type != null ">
 				_type=#{type},
 			</if>
+			<if test="title != null ">
+				title=#{title},
+			</if>
 
 		</set>
 		where id = #{id}
@@ -93,12 +102,15 @@
 			<if test="type != null ">
 				_type=values(_type),
 			</if>
+			<if test="title != null ">
+				title=values(title),
+			</if>
 
 		</trim>
 	</insert>
 
 	<sql id="queryList">
-		select id,_type,modify_time from
+		select id,content,_type,modify_time,title from
 		msg
 	</sql>
 
@@ -115,6 +127,9 @@
 			</if>
 			<if test="type != null">
 				AND _type=#{type}
+			</if>
+			<if test="title != null">
+				AND title=#{title}
 			</if>
 
 		</trim>

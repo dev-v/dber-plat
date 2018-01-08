@@ -134,7 +134,7 @@
 	</insert>
 
 	<sql id="queryList">
-		select id,name,days,discount_days,transfer_sys_discount,transfer_self_discount from
+		select id,name,days,discount_days,transfer_sys_discount,transfer_self_discount,modify_time from
 		vip_card_strategy
 	</sql>
 
@@ -157,6 +157,9 @@
 			</if>
 			<if test="transferSelfDiscount != null">
 				AND transfer_self_discount=#{transferSelfDiscount}
+			</if>
+			<if test="modifyTime != null">
+				AND modify_time=#{modifyTime}
 			</if>
 
 		</trim>

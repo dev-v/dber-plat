@@ -43,6 +43,11 @@ public class JobInstance {
 	/**
 	 * 
 	 */
+	private String realParams;
+
+	/**
+	 * 
+	 */
 	private java.sql.Date createTime;
 
 	/**
