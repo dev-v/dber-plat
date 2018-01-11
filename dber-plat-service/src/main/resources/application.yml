@@ -5,7 +5,6 @@ spring:
 
 logging:
   path: logs
-
 server:
   port: 8081
 
@@ -20,9 +19,10 @@ spring:
     pool:
       min-idle: 2
 
-dber.plat:
+dber:
   service:
-    mysql:
+    name: plat
+    database:
       host: 192.168.120.3
       port: 3306
       database: dber_plat
@@ -32,5 +32,7 @@ dber.plat:
       initialSize: 1
       maxActive: 2
       minIdle: 1
+  web:
+    baseUrl: http://127.0.0.1:8081/
       
       

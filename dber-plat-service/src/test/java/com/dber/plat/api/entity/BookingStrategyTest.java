@@ -6,16 +6,10 @@ import com.alibaba.fastjson.parser.ParserConfig;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.util.TypeUtils;
-import com.dber.base.util.Util;
-import com.sun.javafx.scene.control.skin.Utils;
+import com.dber.util.Util;
 import org.junit.Test;
 
-import java.sql.Time;
 import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Map;
-
-import static org.junit.Assert.*;
 
 public class BookingStrategyTest {
     {

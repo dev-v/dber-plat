@@ -55,9 +55,9 @@ public class Account {
 	private Integer pwExpired;
 
 	/**
-	 * 账户类型：1-健身者，2-私教，3-店铺管理员
+	 * 所属平台
 	 */
-	private Integer type;
+	private Integer system;
 
 	/**
 	 * 
