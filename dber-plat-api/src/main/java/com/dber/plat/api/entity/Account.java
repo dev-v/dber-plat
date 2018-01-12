@@ -31,6 +31,11 @@ public class Account {
 	private String cellphone;
 
 	/**
+	 * 
+	 */
+	private String email;
+
+	/**
 	 * 手机登录密码
 	 */
 	private String password;
@@ -55,7 +60,7 @@ public class Account {
 	private Integer pwExpired;
 
 	/**
-	 * 所属平台
+	 * 所属平台，与数据字典保持一致
 	 */
 	private Integer system;
 

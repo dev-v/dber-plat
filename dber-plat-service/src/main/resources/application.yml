@@ -8,7 +8,6 @@ logging:
 server:
   port: 8081
 
-
 ---
 spring:
   profiles: dev
@@ -49,5 +48,3 @@ dber:
       minIdle: 1
   web:
     baseUrl: http://127.0.0.1:8081/
-      
-      

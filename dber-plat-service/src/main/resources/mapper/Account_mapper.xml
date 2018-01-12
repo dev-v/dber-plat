@@ -42,6 +42,9 @@
 			<if test="cellphone!=null">
 				cellphone,
 			</if>
+			<if test="email!=null">
+				email,
+			</if>
 			<if test="password!=null">
 				password,
 			</if>
@@ -54,8 +57,8 @@
 			<if test="pwExpired!=null">
 				pw_expired,
 			</if>
-			<if test="type!=null">
-				_type,
+			<if test="system!=null">
+				_system,
 			</if>
 		</trim>
 		) values (
@@ -69,6 +72,9 @@
 			<if test="cellphone!=null">
 				#{cellphone},
 			</if>
+			<if test="email!=null">
+				#{email},
+			</if>
 			<if test="password!=null">
 				#{password},
 			</if>
@@ -81,8 +87,8 @@
 			<if test="pwExpired!=null">
 				#{pwExpired},
 			</if>
-			<if test="type!=null">
-				#{type},
+			<if test="system!=null">
+				#{system},
 			</if>
 		</trim>
 
@@ -105,6 +111,9 @@
 			<if test="cellphone != null ">
 				cellphone=#{cellphone},
 			</if>
+			<if test="email != null ">
+				email=#{email},
+			</if>
 			<if test="password != null ">
 				password=#{password},
 			</if>
@@ -117,8 +126,8 @@
 			<if test="pwExpired != null ">
 				pw_expired=#{pwExpired},
 			</if>
-			<if test="type != null ">
-				_type=#{type},
+			<if test="system != null ">
+				_system=#{system},
 			</if>
 
 		</set>
@@ -138,6 +147,9 @@
 			<if test="cellphone != null ">
 				cellphone=values(cellphone),
 			</if>
+			<if test="email != null ">
+				email=values(email),
+			</if>
 			<if test="password != null ">
 				password=values(password),
 			</if>
@@ -150,15 +162,15 @@
 			<if test="pwExpired != null ">
 				pw_expired=values(pw_expired),
 			</if>
-			<if test="type != null ">
-				_type=values(_type),
+			<if test="system != null ">
+				_system=values(_system),
 			</if>
 
 		</trim>
 	</insert>
 
 	<sql id="queryList">
-		select id,name,cellphone,password,bind_id,_status,pw_expired,_type,create_time,modify_time from
+		select id,name,cellphone,email,password,bind_id,_status,pw_expired,_system,create_time,modify_time from
 		account
 	</sql>
 
@@ -173,6 +185,9 @@
 			<if test="cellphone != null">
 				AND cellphone=#{cellphone}
 			</if>
+			<if test="email != null">
+				AND email=#{email}
+			</if>
 			<if test="password != null">
 				AND password=#{password}
 			</if>
@@ -185,8 +200,8 @@
 			<if test="pwExpired != null">
 				AND pw_expired=#{pwExpired}
 			</if>
-			<if test="type != null">
-				AND _type=#{type}
+			<if test="system != null">
+				AND _system=#{system}
 			</if>
 			<if test="createTime != null">
 				AND create_time=#{createTime}
