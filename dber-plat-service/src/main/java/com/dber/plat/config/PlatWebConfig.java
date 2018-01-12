@@ -1,8 +1,10 @@
 package com.dber.plat.config;
 
+import com.dber.base.enums.DberSystem;
+import com.dber.base.util.BaseKeyUtil;
 import com.dber.cache.ICacheService;
-import com.dber.cache.config.CacheConfig;
-import com.dber.plat.api.IPlatClient;
+import com.dber.config.SystemConfig;
+import com.dber.base.IClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -23,14 +25,21 @@ import javax.annotation.PostConstruct;
  * @since 2017年12月21日
  */
 @Configuration
-@Import({BaseWebConfig.class})
+@Import({PlatServiceConfig.class, BaseWebConfig.class})
 @ComponentScan("com.dber.plat.web")
 public class PlatWebConfig {
-//    @Autowired
-//    ICacheService cacheService;
-//
-//    @PostConstruct
-//    public void init(){
-//        cacheService.put(IPlatClient.BASE_URL_KEY,"");
-//    }
+
+    @Autowired
+    SystemConfig systemConfig;
+
+    @Autowired
+    ICacheService cacheService;
+
+    @PostConstruct
+    public void init() {
+        cacheService.put(
+                BaseKeyUtil.getBaseKey(DberSystem.valueOf(systemConfig.getService().getName().toUpperCase())),
+                systemConfig.getWeb().getBaseUrl()
+        );
+    }
 }

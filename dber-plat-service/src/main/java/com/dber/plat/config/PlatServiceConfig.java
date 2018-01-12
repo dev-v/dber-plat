@@ -4,7 +4,8 @@ import java.io.IOException;
 
 import javax.sql.DataSource;
 
-import com.dber.base.config.SystemConfig;
+import com.dber.cache.config.CacheConfig;
+import com.dber.config.SystemConfig;
 import org.apache.ibatis.plugin.Interceptor;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
@@ -14,6 +15,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -36,6 +38,7 @@ import com.dber.base.util.DBUtil;
 @EnableAutoConfiguration
 @EnableTransactionManagement
 @ComponentScan("com.dber.plat.service")
+@Import({CacheConfig.class})
 @MapperScan(basePackages = {"com.dber.plat.mapper"})
 public class PlatServiceConfig {
     @Autowired

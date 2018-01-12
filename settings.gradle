@@ -4,14 +4,11 @@ includeFlat 'fastjson'
 
 includeFlat 'dber-tool'
 
-includeFlat 'dber'
+includeFlat 'dber-base-api'
 
-include ':dber:dber-base-api'
-
-include ':dber:dber-base-service'
+includeFlat 'dber-base-service'
 
 include 'dber-plat-api'
 
 include 'dber-plat-service'
-include 'dber-plat-client'
 
