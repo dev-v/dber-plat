@@ -6,9 +6,10 @@ includeFlat 'dber-tool'
 
 includeFlat 'dber-base-api'
 
+includeFlat 'dber-base-api'
+
 includeFlat 'dber-base-service'
 
 include 'dber-plat-api'
 
 include 'dber-plat-service'
-
