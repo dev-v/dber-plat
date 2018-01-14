@@ -1,0 +1,254 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dber.plat.mapper.IBookingStrategyMapper">
+
+    <select id="get" resultType="BookingStrategy">
+		select * from booking_strategy where id=#{id}
+	</select>
+
+    <delete id="del">
+		delete from booking_strategy where id = #{id}
+	</delete>
+
+    <select id="gets" resultType="BookingStrategy">
+        SELECT * FROM booking_strategy WHERE id IN
+        <foreach item="item" index="index" collection="array" open="("
+                 separator="," close=")">#{item}
+        </foreach>
+    </select>
+
+    <sql id="maxLimit">
+		limit 1000
+	</sql>
+
+    <delete id="dels">
+        delete from booking_strategy where id in
+        <foreach item="item" index="index" collection="array" open="("
+                 separator="," close=")">#{item}
+        </foreach>
+        <include refid="maxLimit"></include>
+    </delete>
+
+    <sql id="insertList">
+		(
+		<trim suffixOverrides=",">
+			<if test="id!=null">
+				id,
+			</if>
+			<if test="name!=null">
+				name,
+			</if>
+			<if test="beginTime!=null">
+				begin_time,
+			</if>
+			<if test="endTime!=null">
+				end_time,
+			</if>
+			<if test="bookBeforeTime!=null">
+				book_before_time,
+			</if>
+			<if test="bookAfterTime!=null">
+				book_after_time,
+			</if>
+			<if test="bookShortestTime!=null">
+				book_shortest_time,
+			</if>
+			<if test="bookLongestTime!=null">
+				book_longest_time,
+			</if>
+			<if test="bookCurrentStartOffset!=null">
+				book_current_start_offset,
+			</if>
+			<if test="content!=null">
+				content,
+			</if>
+		</trim>
+		) values (
+		<trim suffixOverrides=",">
+			<if test="id!=null">
+				#{id},
+			</if>
+			<if test="name!=null">
+				#{name},
+			</if>
+			<if test="beginTime!=null">
+				#{beginTime},
+			</if>
+			<if test="endTime!=null">
+				#{endTime},
+			</if>
+			<if test="bookBeforeTime!=null">
+				#{bookBeforeTime},
+			</if>
+			<if test="bookAfterTime!=null">
+				#{bookAfterTime},
+			</if>
+			<if test="bookShortestTime!=null">
+				#{bookShortestTime},
+			</if>
+			<if test="bookLongestTime!=null">
+				#{bookLongestTime},
+			</if>
+			<if test="bookCurrentStartOffset!=null">
+				#{bookCurrentStartOffset},
+			</if>
+			<if test="content!=null">
+				#{content},
+			</if>
+		</trim>
+
+		)
+	</sql>
+
+    <!-- 注意检查非空和主键自增属性 -->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert
+        into booking_strategy
+        <include refid="insertList"></include>
+    </insert>
+
+    <update id="update">
+        update booking_strategy
+        <set>
+            			<if test="name != null ">
+				name=#{name},
+			</if>
+			<if test="beginTime != null ">
+				begin_time=#{beginTime},
+			</if>
+			<if test="endTime != null ">
+				end_time=#{endTime},
+			</if>
+			<if test="bookBeforeTime != null ">
+				book_before_time=#{bookBeforeTime},
+			</if>
+			<if test="bookAfterTime != null ">
+				book_after_time=#{bookAfterTime},
+			</if>
+			<if test="bookShortestTime != null ">
+				book_shortest_time=#{bookShortestTime},
+			</if>
+			<if test="bookLongestTime != null ">
+				book_longest_time=#{bookLongestTime},
+			</if>
+			<if test="bookCurrentStartOffset != null ">
+				book_current_start_offset=#{bookCurrentStartOffset},
+			</if>
+			<if test="content != null ">
+				content=#{content},
+			</if>
+
+        </set>
+        where id = #{id}
+    </update>
+
+    <insert id="save" useGeneratedKeys="true" keyProperty="id">
+        <!-- 不包含数据库类型为TIMESTAMP（由数据库自动管理）的列 -->
+        insert into booking_strategy
+        <include refid="insertList"></include>
+        ON DUPLICATE KEY
+        UPDATE
+        <trim suffixOverrides=",">
+            			<if test="name != null ">
+				name=values(name),
+			</if>
+			<if test="beginTime != null ">
+				begin_time=values(begin_time),
+			</if>
+			<if test="endTime != null ">
+				end_time=values(end_time),
+			</if>
+			<if test="bookBeforeTime != null ">
+				book_before_time=values(book_before_time),
+			</if>
+			<if test="bookAfterTime != null ">
+				book_after_time=values(book_after_time),
+			</if>
+			<if test="bookShortestTime != null ">
+				book_shortest_time=values(book_shortest_time),
+			</if>
+			<if test="bookLongestTime != null ">
+				book_longest_time=values(book_longest_time),
+			</if>
+			<if test="bookCurrentStartOffset != null ">
+				book_current_start_offset=values(book_current_start_offset),
+			</if>
+			<if test="content != null ">
+				content=values(content),
+			</if>
+
+        </trim>
+    </insert>
+
+    <sql id="queryList">
+		select id,name,begin_time,end_time,book_before_time,book_after_time,book_shortest_time,book_longest_time,book_current_start_offset,create_time,modify_time from
+		booking_strategy
+	</sql>
+
+    <sql id="where">
+        <trim prefix="WHERE" prefixOverrides="AND">
+            			<if test="id != null">
+				AND id=#{id}
+			</if>
+			<if test="name != null">
+				AND name=#{name}
+			</if>
+			<if test="beginTime != null">
+				AND begin_time=#{beginTime}
+			</if>
+			<if test="endTime != null">
+				AND end_time=#{endTime}
+			</if>
+			<if test="bookBeforeTime != null">
+				AND book_before_time=#{bookBeforeTime}
+			</if>
+			<if test="bookAfterTime != null">
+				AND book_after_time=#{bookAfterTime}
+			</if>
+			<if test="bookShortestTime != null">
+				AND book_shortest_time=#{bookShortestTime}
+			</if>
+			<if test="bookLongestTime != null">
+				AND book_longest_time=#{bookLongestTime}
+			</if>
+			<if test="bookCurrentStartOffset != null">
+				AND book_current_start_offset=#{bookCurrentStartOffset}
+			</if>
+			<if test="content != null">
+				AND content=#{content}
+			</if>
+			<if test="createTime != null">
+				AND create_time=#{createTime}
+			</if>
+			<if test="modifyTime != null">
+				AND modify_time=#{modifyTime}
+			</if>
+
+        </trim>
+    </sql>
+
+    <select id="query" resultType="BookingStrategy">
+        <include refid="queryList"></include>
+        <include refid="where"></include>
+    </select>
+
+    <select id="queryWithoutPage" resultType="BookingStrategy">
+        <include refid="queryList"></include>
+        <include refid="where"></include>
+        <include refid="maxLimit"></include>
+    </select>
+
+    <select id="queryOne" resultType="BookingStrategy">
+        select * from booking_strategy
+        <include refid="where"></include>
+        limit 1
+    </select>
+
+    <select id="getIds" resultType="long">
+        select id from booking_strategy
+        <include refid="where"></include>
+        <include refid="maxLimit"></include>
+    </select>
+
+</mapper>
