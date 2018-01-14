@@ -1,36 +1,36 @@
 <!DOCTYPE mapper
-    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dber.plat.mapper.IBookingStrategyMapper">
 
-	<select id="get" resultType="BookingStrategy">
+    <select id="get" resultType="BookingStrategy">
 		select * from booking_strategy where id=#{id}
 	</select>
 
-	<delete id="del">
+    <delete id="del">
 		delete from booking_strategy where id = #{id}
 	</delete>
 
-	<select id="gets" resultType="BookingStrategy">
-		SELECT * FROM booking_strategy WHERE id IN
-		<foreach item="item" index="index" collection="array" open="("
-			separator="," close=")"> #{item}
-		</foreach>
-	</select>
+    <select id="gets" resultType="BookingStrategy">
+        SELECT * FROM booking_strategy WHERE id IN
+        <foreach item="item" index="index" collection="array" open="("
+                 separator="," close=")">#{item}
+        </foreach>
+    </select>
 
-	<sql id="maxLimit">
+    <sql id="maxLimit">
 		limit 1000
 	</sql>
 
-	<delete id="dels">
-		delete from booking_strategy where id in
-		<foreach item="item" index="index" collection="array" open="("
-			separator="," close=")"> #{item}
-		</foreach>
-		<include refid="maxLimit"></include>
-	</delete>
+    <delete id="dels">
+        delete from booking_strategy where id in
+        <foreach item="item" index="index" collection="array" open="("
+                 separator="," close=")">#{item}
+        </foreach>
+        <include refid="maxLimit"></include>
+    </delete>
 
-	<sql id="insertList">
+    <sql id="insertList">
 		(
 		<trim suffixOverrides=",">
 			<if test="id!=null">
@@ -101,17 +101,17 @@
 		)
 	</sql>
 
-	<!-- 注意检查非空和主键自增属性 -->
-	<insert id="insert" keyProperty="id" useGeneratedKeys="true">
-		insert
-		into booking_strategy
-		<include refid="insertList"></include>
-	</insert>
+    <!-- 注意检查非空和主键自增属性 -->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert
+        into booking_strategy
+        <include refid="insertList"></include>
+    </insert>
 
-	<update id="update">
-		update booking_strategy
-		<set>
-						<if test="name != null ">
+    <update id="update">
+        update booking_strategy
+        <set>
+            			<if test="name != null ">
 				name=#{name},
 			</if>
 			<if test="beginTime != null ">
@@ -139,18 +139,18 @@
 				content=#{content},
 			</if>
 
-		</set>
-		where id = #{id}
-	</update>
+        </set>
+        where id = #{id}
+    </update>
 
-	<insert id="save" useGeneratedKeys="true" keyProperty="id">
-		<!-- 不包含数据库类型为TIMESTAMP（由数据库自动管理）的列 -->
-		insert into booking_strategy
-		<include refid="insertList"></include>
-		ON DUPLICATE KEY
-		UPDATE
-		<trim suffixOverrides=",">
-						<if test="name != null ">
+    <insert id="save" useGeneratedKeys="true" keyProperty="id">
+        <!-- 不包含数据库类型为TIMESTAMP（由数据库自动管理）的列 -->
+        insert into booking_strategy
+        <include refid="insertList"></include>
+        ON DUPLICATE KEY
+        UPDATE
+        <trim suffixOverrides=",">
+            			<if test="name != null ">
 				name=values(name),
 			</if>
 			<if test="beginTime != null ">
@@ -178,17 +178,17 @@
 				content=values(content),
 			</if>
 
-		</trim>
-	</insert>
+        </trim>
+    </insert>
 
-	<sql id="queryList">
+    <sql id="queryList">
 		select id,name,begin_time,end_time,book_before_time,book_after_time,book_shortest_time,book_longest_time,book_current_start_offset,create_time,modify_time from
 		booking_strategy
 	</sql>
 
-	<sql id="where">
-		<trim prefix="WHERE" prefixOverrides="AND">
-						<if test="id != null">
+    <sql id="where">
+        <trim prefix="WHERE" prefixOverrides="AND">
+            			<if test="id != null">
 				AND id=#{id}
 			</if>
 			<if test="name != null">
@@ -225,24 +225,30 @@
 				AND modify_time=#{modifyTime}
 			</if>
 
-		</trim>
-	</sql>
+        </trim>
+    </sql>
 
-	<select id="query" resultType="BookingStrategy">
-		<include refid="queryList"></include>
-		<include refid="where"></include>
-	</select>
+    <select id="query" resultType="BookingStrategy">
+        <include refid="queryList"></include>
+        <include refid="where"></include>
+    </select>
 
-	<select id="queryWithoutPage" resultType="BookingStrategy">
-		<include refid="queryList"></include>
-		<include refid="where"></include>
-		<include refid="maxLimit"></include>
-	</select>
+    <select id="queryWithoutPage" resultType="BookingStrategy">
+        <include refid="queryList"></include>
+        <include refid="where"></include>
+        <include refid="maxLimit"></include>
+    </select>
 
-	<select id="getIds" resultType="long">
-		select id from booking_strategy
-		<include refid="where"></include>
-		<include refid="maxLimit"></include>
-	</select>
+    <select id="queryOne" resultType="Account">
+        select * from booking_strategy
+        <include refid="where"></include>
+        limit 1
+    </select>
+
+    <select id="getIds" resultType="long">
+        select id from booking_strategy
+        <include refid="where"></include>
+        <include refid="maxLimit"></include>
+    </select>
 
 </mapper>

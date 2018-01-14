@@ -1,36 +1,36 @@
 <!DOCTYPE mapper
-    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dber.plat.mapper.IVipCardStrategyMapper">
 
-	<select id="get" resultType="VipCardStrategy">
+    <select id="get" resultType="VipCardStrategy">
 		select * from vip_card_strategy where id=#{id}
 	</select>
 
-	<delete id="del">
+    <delete id="del">
 		delete from vip_card_strategy where id = #{id}
 	</delete>
 
-	<select id="gets" resultType="VipCardStrategy">
-		SELECT * FROM vip_card_strategy WHERE id IN
-		<foreach item="item" index="index" collection="array" open="("
-			separator="," close=")"> #{item}
-		</foreach>
-	</select>
+    <select id="gets" resultType="VipCardStrategy">
+        SELECT * FROM vip_card_strategy WHERE id IN
+        <foreach item="item" index="index" collection="array" open="("
+                 separator="," close=")">#{item}
+        </foreach>
+    </select>
 
-	<sql id="maxLimit">
+    <sql id="maxLimit">
 		limit 1000
 	</sql>
 
-	<delete id="dels">
-		delete from vip_card_strategy where id in
-		<foreach item="item" index="index" collection="array" open="("
-			separator="," close=")"> #{item}
-		</foreach>
-		<include refid="maxLimit"></include>
-	</delete>
+    <delete id="dels">
+        delete from vip_card_strategy where id in
+        <foreach item="item" index="index" collection="array" open="("
+                 separator="," close=")">#{item}
+        </foreach>
+        <include refid="maxLimit"></include>
+    </delete>
 
-	<sql id="insertList">
+    <sql id="insertList">
 		(
 		<trim suffixOverrides=",">
 			<if test="id!=null">
@@ -77,17 +77,17 @@
 		)
 	</sql>
 
-	<!-- 注意检查非空和主键自增属性 -->
-	<insert id="insert" keyProperty="id" useGeneratedKeys="true">
-		insert
-		into vip_card_strategy
-		<include refid="insertList"></include>
-	</insert>
+    <!-- 注意检查非空和主键自增属性 -->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert
+        into vip_card_strategy
+        <include refid="insertList"></include>
+    </insert>
 
-	<update id="update">
-		update vip_card_strategy
-		<set>
-						<if test="name != null ">
+    <update id="update">
+        update vip_card_strategy
+        <set>
+            			<if test="name != null ">
 				name=#{name},
 			</if>
 			<if test="days != null ">
@@ -103,18 +103,18 @@
 				transfer_self_discount=#{transferSelfDiscount},
 			</if>
 
-		</set>
-		where id = #{id}
-	</update>
+        </set>
+        where id = #{id}
+    </update>
 
-	<insert id="save" useGeneratedKeys="true" keyProperty="id">
-		<!-- 不包含数据库类型为TIMESTAMP（由数据库自动管理）的列 -->
-		insert into vip_card_strategy
-		<include refid="insertList"></include>
-		ON DUPLICATE KEY
-		UPDATE
-		<trim suffixOverrides=",">
-						<if test="name != null ">
+    <insert id="save" useGeneratedKeys="true" keyProperty="id">
+        <!-- 不包含数据库类型为TIMESTAMP（由数据库自动管理）的列 -->
+        insert into vip_card_strategy
+        <include refid="insertList"></include>
+        ON DUPLICATE KEY
+        UPDATE
+        <trim suffixOverrides=",">
+            			<if test="name != null ">
 				name=values(name),
 			</if>
 			<if test="days != null ">
@@ -130,17 +130,17 @@
 				transfer_self_discount=values(transfer_self_discount),
 			</if>
 
-		</trim>
-	</insert>
+        </trim>
+    </insert>
 
-	<sql id="queryList">
+    <sql id="queryList">
 		select id,name,days,discount_days,transfer_sys_discount,transfer_self_discount,modify_time from
 		vip_card_strategy
 	</sql>
 
-	<sql id="where">
-		<trim prefix="WHERE" prefixOverrides="AND">
-						<if test="id != null">
+    <sql id="where">
+        <trim prefix="WHERE" prefixOverrides="AND">
+            			<if test="id != null">
 				AND id=#{id}
 			</if>
 			<if test="name != null">
@@ -162,24 +162,30 @@
 				AND modify_time=#{modifyTime}
 			</if>
 
-		</trim>
-	</sql>
+        </trim>
+    </sql>
 
-	<select id="query" resultType="VipCardStrategy">
-		<include refid="queryList"></include>
-		<include refid="where"></include>
-	</select>
+    <select id="query" resultType="VipCardStrategy">
+        <include refid="queryList"></include>
+        <include refid="where"></include>
+    </select>
 
-	<select id="queryWithoutPage" resultType="VipCardStrategy">
-		<include refid="queryList"></include>
-		<include refid="where"></include>
-		<include refid="maxLimit"></include>
-	</select>
+    <select id="queryWithoutPage" resultType="VipCardStrategy">
+        <include refid="queryList"></include>
+        <include refid="where"></include>
+        <include refid="maxLimit"></include>
+    </select>
 
-	<select id="getIds" resultType="long">
-		select id from vip_card_strategy
-		<include refid="where"></include>
-		<include refid="maxLimit"></include>
-	</select>
+    <select id="queryOne" resultType="Account">
+        select * from vip_card_strategy
+        <include refid="where"></include>
+        limit 1
+    </select>
+
+    <select id="getIds" resultType="long">
+        select id from vip_card_strategy
+        <include refid="where"></include>
+        <include refid="maxLimit"></include>
+    </select>
 
 </mapper>

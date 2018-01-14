@@ -6,7 +6,7 @@ spring:
 logging:
   path: logs
 server:
-  port: 8081
+  port: 8080
 
 ---
 spring:
@@ -46,5 +46,3 @@ dber:
       initialSize: 1
       maxActive: 2
       minIdle: 1
-  web:
-    baseUrl: http://127.0.0.1:8081/

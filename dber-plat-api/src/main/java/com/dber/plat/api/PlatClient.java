@@ -1,9 +1,8 @@
-package com.dber.
-
-plat.api;
+package com.dber.plat.api;
 
 import com.dber.base.AbstractClient;
 import com.dber.base.enums.DberSystem;
+import com.dber.base.result.Result;
 import org.springframework.stereotype.Service;
 
 /**
@@ -19,5 +18,9 @@ import org.springframework.stereotype.Service;
 public class PlatClient extends AbstractClient{
     public PlatClient(){
         super(DberSystem.PLAT);
+    }
+
+    public Result<String> test() {
+        return clientUtil.get("/api/test");
     }
 }
