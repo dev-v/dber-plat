@@ -176,7 +176,7 @@
         <include refid="maxLimit"></include>
     </select>
 
-    <select id="queryOne" resultType="Account">
+    <select id="queryOne" resultType="VipCardStrategy">
         select * from vip_card_strategy
         <include refid="where"></include>
         limit 1

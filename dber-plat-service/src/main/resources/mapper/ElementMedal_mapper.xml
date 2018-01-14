@@ -221,7 +221,7 @@
         <include refid="maxLimit"></include>
     </select>
 
-    <select id="queryOne" resultType="Account">
+    <select id="queryOne" resultType="ElementMedal">
         select * from element_medal
         <include refid="where"></include>
         limit 1

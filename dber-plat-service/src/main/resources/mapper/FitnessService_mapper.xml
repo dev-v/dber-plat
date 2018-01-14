@@ -176,7 +176,7 @@
         <include refid="maxLimit"></include>
     </select>
 
-    <select id="queryOne" resultType="Account">
+    <select id="queryOne" resultType="FitnessService">
         select * from fitness_service
         <include refid="where"></include>
         limit 1

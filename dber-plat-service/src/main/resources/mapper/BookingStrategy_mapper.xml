@@ -239,7 +239,7 @@
         <include refid="maxLimit"></include>
     </select>
 
-    <select id="queryOne" resultType="Account">
+    <select id="queryOne" resultType="BookingStrategy">
         select * from booking_strategy
         <include refid="where"></include>
         limit 1

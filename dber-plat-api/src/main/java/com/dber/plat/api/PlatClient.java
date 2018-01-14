@@ -1,9 +1,11 @@
 package com.dber.plat.api;
 
 import com.dber.base.AbstractClient;
+import com.dber.base.entity.Account;
 import com.dber.base.enums.DberSystem;
 import com.dber.base.result.Result;
-import org.springframework.stereotype.Service;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 /**
  * <li>修改记录: ...</li>
@@ -14,13 +16,18 @@ import org.springframework.stereotype.Service;
  * @version 1.0
  * @since 2018/1/11
  */
-@Service
-public class PlatClient extends AbstractClient{
-    public PlatClient(){
+@Configuration
+@Import({PlatLoginHelper.class})
+public class PlatClient extends AbstractClient {
+    public PlatClient() {
         super(DberSystem.PLAT);
     }
 
-    public Result<String> test() {
-        return clientUtil.get("/api/test");
+    public Result<Account> getAccount(Account account) {
+        return clientUtil.get("/api/getAccount", account, Account.class);
+    }
+
+    public Result<Integer> saveAccount(Account account) {
+        return clientUtil.post("/api/saveAccount", account, Integer.class);
     }
 }

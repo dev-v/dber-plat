@@ -4,6 +4,7 @@ import com.dber.config.SystemConfig;
 import com.dber.cache.ICacheService;
 import com.dber.base.enums.DberSystem;
 import com.dber.base.util.BaseKeyUtil;
+import com.dber.plat.api.PlatClient;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,13 +24,13 @@ import java.net.UnknownHostException;
  * <li>修改记录: ...</li>
  * <li>内容摘要: ...</li>
  * <li>其他说明: ...</li>
- * 
+ *
+ * @author dev-v
  * @version 1.0
  * @since 2017年12月21日
- * @author dev-v
  */
 @Configuration
-@Import({ PlatServiceConfig.class,BaseWebConfig.class})
+@Import({PlatServiceConfig.class, BaseWebConfig.class, PlatClient.class})
 @ComponentScan("com.dber.plat.web")
 public class PlatWebConfig implements ApplicationListener<EmbeddedServletContainerInitializedEvent> {
 

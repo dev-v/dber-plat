@@ -1,5 +1,6 @@
 package com.dber.plat.api;
 
+import com.dber.plat.api.entity.Account;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,14 @@ public class PlatClientTest {
     private PlatClient client;
 
     @Test
-    public void test(){
+    public void test() {
         System.out.println(client.test());
+    }
+
+    @Test
+    public void getAccount() {
+        Account account = new Account();
+        account.setName("aa");
+        System.out.println(client.getAccount(account));
     }
 }
