@@ -15,11 +15,6 @@ public class PlatClientTest {
     private PlatClient client;
 
     @Test
-    public void test() {
-        System.out.println(client.test());
-    }
-
-    @Test
     public void getAccount() {
         Account account = new Account();
         account.setName("aa");

@@ -4,7 +4,7 @@ import com.dber.config.SystemConfig;
 import com.dber.cache.ICacheService;
 import com.dber.base.enums.DberSystem;
 import com.dber.base.util.BaseKeyUtil;
-import com.dber.plat.api.PlatClient;
+import com.dber.plat.api.PlatLoginHelper;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,7 @@ import java.net.UnknownHostException;
  * @since 2017年12月21日
  */
 @Configuration
-@Import({PlatServiceConfig.class, BaseWebConfig.class, PlatClient.class})
+@Import({PlatServiceConfig.class, BaseWebConfig.class, PlatLoginHelper.class})
 @ComponentScan("com.dber.plat.web")
 public class PlatWebConfig implements ApplicationListener<EmbeddedServletContainerInitializedEvent> {
 

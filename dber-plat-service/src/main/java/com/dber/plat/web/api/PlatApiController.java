@@ -45,9 +45,11 @@ public class PlatApiController implements IClient {
     }
 
     @RequestMapping("/saveAccount")
-    public Response<Integer> saveAccount(Account account, @RequestParam(BaseKeyUtil.auth_params_system) DberSystem system) {
+    public Response<Account> saveAccount(Account account, @RequestParam(BaseKeyUtil.auth_params_system) DberSystem system) {
         account.setSystem(system.getValue());
-        return Response.newSuccessResponse(accountService.save(account));
+        accountService.save(account);
+        account.setPassword(null);
+        return Response.newSuccessResponse(account);
     }
 
 }
