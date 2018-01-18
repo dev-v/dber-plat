@@ -41,6 +41,7 @@ public class PlatApiController implements IClient {
     @RequestMapping("/getAccount")
     public Response<Account> getAccount(Account account, @RequestParam(BaseKeyUtil.auth_params_system) DberSystem system) {
         account.setSystem(system.getValue());
+        account.setPassword(null);
         return Response.newSuccessResponse(accountService.queryOne(account));
     }
 
