@@ -6,7 +6,6 @@ import com.dber.base.login.ILoginHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import org.springframework.stereotype.Service;
 
 /**
  * <li>修改记录: ...</li>

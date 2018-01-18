@@ -1,11 +1,10 @@
 package com.dber.plat.web.api;
 
 import com.dber.base.IClient;
+import com.dber.base.entity.Account;
 import com.dber.base.enums.DberSystem;
+import com.dber.base.result.Result;
 import com.dber.base.util.BaseKeyUtil;
-import com.dber.base.web.vo.Response;
-import com.dber.plat.api.entity.Account;
-import com.dber.plat.service.IAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,34 +22,22 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2018/1/12
  */
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/")
 public class PlatApiController implements IClient {
 
     @Autowired
-    private IAccountService accountService;
+    private PlatClientService clientService;
 
-    /**
-     * @param system 客户端系统
-     * @return
-     */
-    @RequestMapping("/test")
-    public Response test(@RequestParam(BaseKeyUtil.auth_params_system) DberSystem system) {
-        return Response.newSuccessResponse(system);
-    }
-
-    @RequestMapping("/getAccount")
-    public Response<Account> getAccount(Account account, @RequestParam(BaseKeyUtil.auth_params_system) DberSystem system) {
+    @RequestMapping("getAccount")
+    public Result<Account> getAccount(Account account, @RequestParam(BaseKeyUtil.auth_params_system) DberSystem system) {
         account.setSystem(system.getValue());
         account.setPassword(null);
-        return Response.newSuccessResponse(accountService.queryOne(account));
+        return clientService.getAccount(account);
     }
 
-    @RequestMapping("/saveAccount")
-    public Response<Account> saveAccount(Account account, @RequestParam(BaseKeyUtil.auth_params_system) DberSystem system) {
+    @RequestMapping("saveAccount")
+    public Result<Account> saveAccount(Account account, @RequestParam(BaseKeyUtil.auth_params_system) DberSystem system) {
         account.setSystem(system.getValue());
-        accountService.save(account);
-        account.setPassword(null);
-        return Response.newSuccessResponse(account);
+        return clientService.saveAccount(account);
     }
-
 }

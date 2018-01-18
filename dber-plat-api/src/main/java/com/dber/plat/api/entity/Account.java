@@ -15,15 +15,5 @@ import lombok.Data;
 @Data
 public class Account extends com.dber.base.entity.Account{
 
-	/**
-	 * 
-	 */
-	private java.sql.Date createTime;
-
-	/**
-	 * 
-	 */
-	private java.sql.Timestamp modifyTime;
-
 
 }
