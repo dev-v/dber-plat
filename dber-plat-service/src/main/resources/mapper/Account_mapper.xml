@@ -30,6 +30,11 @@
         <include refid="maxLimit"></include>
     </delete>
 
+    <delete id="delByCondition">
+        delete from account
+        <include refid="where"></include>
+    </delete>
+
     <sql id="insertList">
 		(
 		<trim suffixOverrides=",">

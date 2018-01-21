@@ -30,6 +30,11 @@
         <include refid="maxLimit"></include>
     </delete>
 
+    <delete id="delByCondition">
+        delete from fitness_service
+        <include refid="where"></include>
+    </delete>
+
     <sql id="insertList">
 		(
 		<trim suffixOverrides=",">

@@ -1,7 +1,5 @@
 package com.dber.plat.api.entity;
 
-import lombok.Data;
-
 /**
  * <li>文件名称: Account.java</li>
  * <li>修改记录: ...</li>
@@ -12,8 +10,6 @@ import lombok.Data;
  * @since 2017年12月20日
  * @author dev-v
  */
-@Data
 public class Account extends com.dber.base.entity.Account{
-
 
 }
