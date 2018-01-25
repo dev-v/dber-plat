@@ -70,8 +70,8 @@ public class PlatClientService implements IPlatClient {
     }
 
     @Override
-    public Result<BookingStrategy> getBookingStrategy(int id) {
-        Response<BookingStrategy> response = Response.newSuccessResponse(bookingStrategyService.get(id));
+    public Result<BookingStrategy> getGroupBookingStrategy() {
+        Response<BookingStrategy> response = Response.newSuccessResponse(bookingStrategyService.get(1));
         return response.toResult();
     }
 

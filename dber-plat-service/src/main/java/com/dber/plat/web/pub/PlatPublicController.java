@@ -36,11 +36,6 @@ public class PlatPublicController {
         return clientService.getService();
     }
 
-    @RequestMapping("getBookingStrategy/{id}")
-    public Result<BookingStrategy> getBookingStrategy(@PathVariable("id") int id) {
-        return clientService.getBookingStrategy(id);
-    }
-
     @RequestMapping("getElementMedals")
     public Result<Collection<ElementMedal>> getElementMedals() {
         return clientService.getElementMedals();
@@ -49,5 +44,10 @@ public class PlatPublicController {
     @RequestMapping("getVipCardStrategy")
     public Result<Collection<VipCardStrategy>> getVipCardStrategy() {
         return clientService.getVipCardStrategy();
+    }
+
+    @RequestMapping("getGroupBookingStrategy")
+    public Result<BookingStrategy> getGroupBookingStrategy() {
+        return clientService.getGroupBookingStrategy();
     }
 }

@@ -3,8 +3,10 @@ package com.dber.plat.web.api;
 import com.dber.base.IClient;
 import com.dber.base.entity.Account;
 import com.dber.base.enums.DberSystem;
+import com.dber.base.enums.ImgType;
 import com.dber.base.result.Result;
 import com.dber.base.util.BaseKeyUtil;
+import com.dber.plat.api.entity.BookingStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,4 +42,10 @@ public class PlatApiController implements IClient {
         account.setSystem(system.getValue());
         return clientService.saveAccount(account);
     }
+
+    @RequestMapping("getGroupBookingStrategy")
+    public Result<BookingStrategy> getGroupBookingStrategy() {
+        return clientService.getGroupBookingStrategy();
+    }
+
 }

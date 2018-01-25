@@ -1,9 +1,9 @@
 package com.dber.plat.api;
 
-import com.alibaba.fastjson.TypeReference;
 import com.dber.base.AbstractClient;
 import com.dber.base.entity.Account;
 import com.dber.base.enums.DberSystem;
+import com.dber.base.enums.ImgType;
 import com.dber.base.result.Result;
 import com.dber.base.util.ResultTypeHelper;
 import com.dber.plat.api.entity.*;
@@ -45,8 +45,8 @@ public class PlatClient extends AbstractClient implements IPlatClient {
     }
 
     @Override
-    public Result<BookingStrategy> getBookingStrategy(int id) {
-        return clientUtil.get("/pub/getBookingStrategy/" + id, ResultTypeHelper.getType(BookingStrategy.class));
+    public Result<BookingStrategy> getGroupBookingStrategy() {
+        return clientUtil.get("/pub/getGroupBookingStrategy/", ResultTypeHelper.getType(BookingStrategy.class));
     }
 
     @Override

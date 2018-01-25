@@ -28,12 +28,12 @@ public class BookingStrategy {
 	/**
 	 * 当天可预约起始时间，单位分钟
 	 */
-	private java.sql.Time beginTime;
+	private Integer beginTime;
 
 	/**
 	 * 当天可预约结束时间，单位分钟
 	 */
-	private java.sql.Time endTime;
+	private Integer endTime;
 
 	/**
 	 * 被预约时间段前置强制占用时间

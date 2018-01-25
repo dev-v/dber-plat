@@ -1,6 +1,7 @@
 package com.dber.plat.api;
 
 import com.dber.base.entity.Account;
+import com.dber.base.enums.ImgType;
 import com.dber.base.result.Result;
 import com.dber.plat.api.entity.*;
 
@@ -30,7 +31,7 @@ public interface IPlatClient {
 
     Result<Collection<FitnessService>> getService();
 
-    Result<BookingStrategy> getBookingStrategy(int id);
+    Result<BookingStrategy> getGroupBookingStrategy();
 
     Result<Collection<ElementMedal>> getElementMedals();
 
