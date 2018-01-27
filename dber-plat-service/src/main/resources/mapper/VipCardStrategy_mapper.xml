@@ -187,6 +187,17 @@
         limit 1
     </select>
 
+    <select id="has" resultType="int">
+        select 1 from vip_card_strategy
+        <include refid="where"></include>
+        limit 1
+    </select>
+
+    <select id="count" resultType="int">
+        select count(*) from vip_card_strategy
+        <include refid="where"></include>
+    </select>
+
     <select id="getIds" resultType="long">
         select id from vip_card_strategy
         <include refid="where"></include>

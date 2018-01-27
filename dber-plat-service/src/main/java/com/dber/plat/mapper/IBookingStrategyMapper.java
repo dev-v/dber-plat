@@ -1,9 +1,8 @@
 package com.dber.plat.mapper;
 
-import org.springframework.stereotype.Repository;
-
 import com.dber.base.mapper.IMapper;
 import com.dber.plat.api.entity.BookingStrategy;
+import org.springframework.stereotype.Repository;
 
 /**
  * <li>文件名称: IBookingStrategyMapper.java</li>

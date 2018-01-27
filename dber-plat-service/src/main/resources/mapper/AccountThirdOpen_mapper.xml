@@ -205,6 +205,17 @@
         limit 1
     </select>
 
+    <select id="has" resultType="int">
+        select 1 from account_third_open
+        <include refid="where"></include>
+        limit 1
+    </select>
+
+    <select id="count" resultType="int">
+        select count(*) from account_third_open
+        <include refid="where"></include>
+    </select>
+
     <select id="getIds" resultType="long">
         select id from account_third_open
         <include refid="where"></include>

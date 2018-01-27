@@ -3,7 +3,7 @@ package com.dber.plat.web.api;
 import com.alibaba.fastjson.JSON;
 import com.dber.base.entity.Account;
 import com.dber.base.result.Result;
-import com.dber.base.web.vo.Response;
+import com.dber.base.entity.Response;
 import com.dber.plat.api.IPlatClient;
 import com.dber.plat.api.entity.*;
 import com.dber.plat.service.*;
