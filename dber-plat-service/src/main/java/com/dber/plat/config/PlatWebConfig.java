@@ -1,10 +1,11 @@
 package com.dber.plat.config;
 
-import com.dber.config.SystemConfig;
-import com.dber.cache.ICacheService;
+import com.dber.base.config.BaseWebConfig;
 import com.dber.base.enums.DberSystem;
 import com.dber.base.util.BaseKeyUtil;
-import com.dber.plat.api.PlatLoginHelper;
+import com.dber.cache.ICacheService;
+import com.dber.config.SystemConfig;
+import com.dber.plat.web.PlatLoginHelper;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,6 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-
-import com.dber.base.config.BaseWebConfig;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;

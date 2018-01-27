@@ -25,7 +25,7 @@ public interface IPlatClient {
      */
     Result<Account> getAccount(Account account);
 
-    Result<Account> saveAccount(Account account);
+    Result<? extends Account> saveAccount(Account account);
 
     Result<Collection<Dict>> getDictsByCategory(int cateogryId);
 

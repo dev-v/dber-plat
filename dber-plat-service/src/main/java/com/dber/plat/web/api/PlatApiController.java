@@ -3,7 +3,6 @@ package com.dber.plat.web.api;
 import com.dber.base.IClient;
 import com.dber.base.entity.Account;
 import com.dber.base.enums.DberSystem;
-import com.dber.base.enums.ImgType;
 import com.dber.base.result.Result;
 import com.dber.base.util.BaseKeyUtil;
 import com.dber.plat.api.entity.BookingStrategy;
@@ -38,7 +37,7 @@ public class PlatApiController implements IClient {
     }
 
     @RequestMapping("saveAccount")
-    public Result<Account> saveAccount(Account account, @RequestParam(BaseKeyUtil.auth_params_system) DberSystem system) {
+    public Result<? extends Account> saveAccount(Account account, @RequestParam(BaseKeyUtil.auth_params_system) DberSystem system) {
         account.setSystem(system.getValue());
         return clientService.saveAccount(account);
     }

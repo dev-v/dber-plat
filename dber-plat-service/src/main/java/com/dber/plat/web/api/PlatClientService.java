@@ -2,8 +2,8 @@ package com.dber.plat.web.api;
 
 import com.alibaba.fastjson.JSON;
 import com.dber.base.entity.Account;
-import com.dber.base.result.Result;
 import com.dber.base.entity.Response;
+import com.dber.base.result.Result;
 import com.dber.plat.api.IPlatClient;
 import com.dber.plat.api.entity.*;
 import com.dber.plat.service.*;
@@ -49,10 +49,11 @@ public class PlatClientService implements IPlatClient {
     }
 
     @Override
-    public Result<Account> saveAccount(Account account) {
-        accountService.save(JSON.toJavaObject((JSON) JSON.toJSON(account), com.dber.plat.api.entity.Account.class));
-        account.setPassword(null);
-        return Response.newSuccessResponse(account).toResult();
+    public Result<? extends Account> saveAccount(Account account) {
+        com.dber.plat.api.entity.Account account1 = JSON.toJavaObject((JSON) JSON.toJSON(account), com.dber.plat.api.entity.Account.class);
+        accountService.save(account1);
+        account1.setPassword(null);
+        return Response.newSuccessResponse(account1).toResult();
     }
 
     @Override

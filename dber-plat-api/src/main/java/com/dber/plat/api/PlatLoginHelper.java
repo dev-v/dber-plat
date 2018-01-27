@@ -1,11 +1,12 @@
 package com.dber.plat.api;
 
 import com.dber.base.entity.Account;
-import com.dber.base.result.Result;
 import com.dber.base.login.ILoginHelper;
+import com.dber.base.result.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.stereotype.Service;
 
 /**
  * <li>修改记录: ...</li>
@@ -16,9 +17,8 @@ import org.springframework.context.annotation.Import;
  * @version 1.0
  * @since 2018/1/14
  */
-@Configuration
 @Import({PlatClient.class})
-public class PlatLoginHelper implements ILoginHelper {
+public abstract class PlatLoginHelper implements ILoginHelper {
 
     @Autowired
     private PlatClient platClient;
@@ -31,7 +31,13 @@ public class PlatLoginHelper implements ILoginHelper {
 
     @Override
     public Result<Account> saveAccount(Account account) {
-        Result<Account> result=platClient.saveAccount(account);
+        Integer id = account.getId();
+        Result<Account> result = platClient.saveAccount(account);
+        if (id == null) {
+            addAccount(result.getResponse());
+        }
         return result;
     }
+
+    protected abstract void addAccount(Account account);
 }
