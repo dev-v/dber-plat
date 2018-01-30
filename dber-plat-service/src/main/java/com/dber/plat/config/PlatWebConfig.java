@@ -5,7 +5,7 @@ import com.dber.base.enums.DberSystem;
 import com.dber.base.util.BaseKeyUtil;
 import com.dber.cache.ICacheService;
 import com.dber.config.SystemConfig;
-import com.dber.plat.web.PlatLoginHelper;
+import com.dber.plat.web.clients.PlatLoginHelper;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;

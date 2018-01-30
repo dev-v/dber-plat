@@ -1,4 +1,4 @@
-package com.dber.plat.web;
+package com.dber.plat.web.clients;
 
 import com.dber.base.entity.Account;
 import com.dber.base.result.Result;
