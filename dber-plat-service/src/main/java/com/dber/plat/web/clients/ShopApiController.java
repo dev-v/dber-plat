@@ -28,22 +28,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/shop/")
 public class ShopApiController extends LoginCheckController {
 
-    @Autowired
-    private IShopClient shopClient;
+  @Autowired
+  private IShopClient shopClient;
 
-    @RequestMapping("save")
-    public Result<Integer> save(Shop shop) {
-        return shopClient.save(shop);
-    }
+  @RequestMapping("save")
+  public Result<Integer> save(Shop shop) {
+    return shopClient.save(shop);
+  }
 
-    @RequestMapping("setBasePrice")
-    public Result<Integer> setBasePrice(Shop shop) {
-        return shopClient.setBasePrice(shop);
-    }
+  @RequestMapping("setBasePrice")
+  public Result<Integer> setBasePrice(Shop shop) {
+    return shopClient.setBasePrice(shop);
+  }
 
-    @RequestMapping("/query/{currentPage}")
-    public Result<Page<Shop>> query(@PathVariable int currentPage, Shop data) {
-        Result<Page<Shop>> result = shopClient.query(currentPage, data);
-        return result;
-    }
+  @RequestMapping("/query/{currentPage}")
+  public Result<Page<Shop>> query(@PathVariable int currentPage, Shop data) {
+    Result<Page<Shop>> result = shopClient.query(currentPage, data);
+    return result;
+  }
 }
