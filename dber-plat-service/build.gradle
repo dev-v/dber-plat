@@ -10,3 +10,6 @@ dependencies {
     compile project(":dber-base-service")
     compile project(":dber-shop:dber-shop-api")
 }
+
+apply plugin: 'application'
+mainClassName = 'com.dber.plat.Application'
